@@ -1,0 +1,42 @@
+<div class="set-center flex-column">
+  <div class="card shadow" style="width: 36rem;">
+    <div class="card-header">
+      <h2 class="text-center">Employee Form</h2>
+    </div>
+    <div class="card-body">
+      <!--Error Message-->
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+          <p class="text-danger"><%= error %></p>
+        <% end %>
+      <% end %>
+      <!-- Form Started Here -->
+      <%= form_with model: @employee do |f| %>
+        <%= f.label :employee_name, "Employee Name :", class:"mt-3" %>
+        <%= f.text_field :employee_name ,placeholder: "Enter Employee's Name",class:"mb-2 form-control" %>
+        <br>
+        <!-- Radio Button For Gender -->
+        <div class="form-group">
+          <%= f.label "Gender :" %>
+          <%= f.radio_button :gender, "male" %>
+          <%= f.label :gender, "Male" %>
+          <%= f.radio_button :gender, "female" %>
+          <%= f.label :gender, "Female" %>
+        </div>
+        <br>
+        <!-- Checkbox For Hobbies -->
+        <div class="form-group">
+          <%= f.label "Hobbies :" %>
+          <%= f.check_box :hobbies, { multiple: true },"Reading", false %>
+          <%= f.label :hobbies, "Reading" %>
+          <%= f.check_box :hobbies, { multiple: true },"Photography", false %>
+          <%= f.label :hobbies, "Photography" %>
+          <%= f.check_box :hobbies, { multiple: true },"Travelling", false %>
+          <%= f.label :hobbies, "Travelling" %>
+        </div>
+        <br>
+        <%= f.submit "Save Employee", class:"btn-primary border-0 rounded-pill shadow p-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>
