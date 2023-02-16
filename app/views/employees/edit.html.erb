@@ -40,7 +40,7 @@
             <%= render 'address_fields', f: address %>
           <% end %>
         </div>
-        <%= link_to_add_association "add address", f, :addresses, data: {association_insertion_node: '.addresses', association_insertion_method: :append} %>
+        <%= link_to_add_association "add address", f, :addresses, data: {association_insertion_node: '.addresses', association_insertion_method: :append}, class: "btn btn-warning rounded-pill shadow p-3" %>
         <%= f.submit "Save Employee", class:"btn-primary border-0 rounded-pill shadow p-3" %>
       <% end %>
     </div>
