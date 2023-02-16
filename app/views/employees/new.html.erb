@@ -35,6 +35,12 @@
           <%= f.label :hobbies, "Travelling" %>
         </div>
         <br>
+        <div class="addresses">
+          <%= f.fields_for :addresses do |address| %>
+            <%= render 'address_fields', f: address %>
+          <% end %>
+        </div>
+        <%= link_to_add_association "add address", f, :addresses, data: {association_insertion_node: '.addresses', association_insertion_method: :append} %>
         <%= f.submit "Save Employee", class:"btn-primary border-0 rounded-pill shadow p-3" %>
       <% end %>
     </div>
