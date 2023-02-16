@@ -19,14 +19,15 @@
             <h2> &#10145; Gender: <%= @employee.gender %> </h2>
             <h2> &#10145; Hobbies: <%= @employee.hobbies %> </h2>
             <!-- Dynamic Address Show Here -->
-            <p> &#10145; Address: 
+            <div>
               <% @employee.addresses.each do |address| %>
                 <p>&#10145; House Number: <%= address.house_number %></p>
                 <p>&#10145; Society Name: <%= address.society_name %></p>
                 <p>&#10145; Area: <%= address.area %></p>
-                <p>&#10145; City: <%= address.city %></p> <hr>
+                <p>&#10145; City: <%= address.city %></p>
+                <hr>
               <% end %>
-            </h2>
+            </div>
           </div>
           <div class="d-flex">
             <%= button_to "Edit Employee" , edit_employee_path, method: :get ,class:"btn-success border-0 rounded-pill shadow p-2 m-2" %>
